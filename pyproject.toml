@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "agentloop"
+version = "0.1.0"
+description = "Transforming AI from a single-shot responder into an autonomous, self-correcting, and goal-driven system."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+
+keywords = ["ai", "agents", "llm", "gpu", "optimization", "kernel"]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# Minimal install — only what the core loop needs
+dependencies = [
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+# Install only the provider(s) you need
+groq       = ["groq>=0.4"]
+anthropic  = ["anthropic>=0.25"]
+openai     = ["openai>=1.12"]
+ollama     = ["requests>=2.31"]   # ollama uses raw HTTP, no extra package needed
+
+# Install everything
+all = [
+    "groq>=0.4",
+    "anthropic>=0.25",
+    "openai>=1.12",
+]
+
+# For contributors
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.4",
+    "mypy>=1.9",
+]
+
+[project.urls]
+Homepage    = "https://github.com/yourname/agentloop"
+Repository  = "https://github.com/yourname/agentloop"
+Issues      = "https://github.com/yourname/agentloop/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agentloop*", "providers*"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
