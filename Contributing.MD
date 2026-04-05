@@ -10,14 +10,14 @@ Thanks for your interest in contributing. AgentLoop is intentionally minimal, be
 - **Add a new environment** —> wrap a new compiler/profiler in `environment.py`
 - **Improve the prompt** —> better prompts = smarter agent behavior
 - **Write tests** —> coverage for `memory.py`, `environment.py`, and `agent.py`
-- **Fix bugs** —> check [open issues](https://github.com/yourname/agentloop/issues)
+- **Fix bugs** —> check [open issues](https://github.com/jagkt/agentloop/issues)
 
 ---
 
 ## Setup
 
 ```bash
-git clone https://github.com/yourname/agentloop
+git clone https://github.com/jagkt/agentloop
 cd agentloop
 pip install -e ".[all,dev]"
 cp .env.example .env  # add your keys

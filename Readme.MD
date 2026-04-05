@@ -78,7 +78,7 @@ AgentLoop is provider-agnostic. Switch LLMs with one word:
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/yourname/agentloop
+git clone https://github.com/jagkt/agentloop
 cd agentloop
 pip install -e ".[all]"
 ```

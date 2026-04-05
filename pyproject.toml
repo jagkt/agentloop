@@ -51,9 +51,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage    = "https://github.com/yourname/agentloop"
-Repository  = "https://github.com/yourname/agentloop"
-Issues      = "https://github.com/yourname/agentloop/issues"
+Homepage    = "https://github.com/jagkt/agentloop"
+Repository  = "https://github.com/jagkt/agentloop"
+Issues      = "https://github.com/jagkt/agentloop/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
