@@ -148,7 +148,7 @@ provider="openai"    # GPT-4o
 agentloop/
   providers/
     __init__.py
-    base.py                # abstract LLM interface
+    base.py                # abstract LLM interface 
     groq_provider.py
     ollama_provider.py
     anthropic_provider.py
