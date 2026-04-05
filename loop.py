@@ -1,15 +1,14 @@
-from dotenv import load_dotenv
-load_dotenv()
-
 import os
+
 from agent import Agent
+from dotenv import load_dotenv
 from environment import Environment
 from memory import Memory
 from providers.groq_provider import GroqProvider
 from providers.ollama_provider import OllamaProvider
 from providers.anthropic_provider import AnthropicProvider
 from providers.openai_provider import OpenAIProvider
-
+load_dotenv()
 
 
 def get_provider(name: str) -> object:
