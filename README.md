@@ -1,4 +1,5 @@
 # AgentLoop
+[![CI](https://github.com/jagkt/agentloop/actions/workflows/ci.yaml/badge.svg)](https://github.com/jagkt/agentloop/actions/workflows/ci.yaml)
 
 > Transforming AI from a "single-shot" responder into an autonomous, self-correcting, and goal-driven system.
 
