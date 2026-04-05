@@ -1,4 +1,4 @@
-from anthropic import Anthropic
+#from anthropic import Anthropic
 from environment import Environment
 from memory import Memory
 from modifier import Modifier

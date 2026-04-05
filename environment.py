@@ -13,7 +13,7 @@ class Environment:
         Mock for now — replace with real nvcc call in KernelScope.
         """
         # TODO: subprocess.run(["nvcc", ...])
-        print(f"[Environment] Compiling code...")
+        print("[Environment] Compiling code...")
         if "error" in code.lower():
             return False, "Compilation failed: syntax error detected"
         return True, None
@@ -25,9 +25,9 @@ class Environment:
         Mock for now — replace with real ncu call in KernelScope.
         """
         # TODO: subprocess.run(["ncu", ...])
-        print(f"[Environment] Profiling code...")
+        print("[Environment] Profiling code...")
         import random
-        metric = round(random.uniform(49.0, 95.0), 2)  # mock metric value between 50 and 100
+        metric = round(random.uniform(49.0, 95.0), 2)  # mock metric
         raw_output = f"Memory bandwidth utilization: {metric}%"
         return raw_output, metric
     

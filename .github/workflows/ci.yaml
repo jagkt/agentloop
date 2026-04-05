@@ -14,4 +14,5 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install ruff
-      - run: ruff check . --ignore E402
+      - run: ruff check .  --fix --ignore E501
+      - run: ruff format .
