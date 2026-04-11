@@ -9,7 +9,8 @@ class GroqProvider(BaseLLMProvider):
     def generate_response(self, prompt: str) -> str:
         response = self.client.chat.completions.create(
             model=self.model,
-            max_tokens=1024,
+            max_tokens=2048,
             messages=[{"role": "user", "content": prompt}]
         )
         return response.choices[0].message.content
+    
