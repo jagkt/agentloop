@@ -146,36 +146,77 @@ provider="openai"    # GPT-4o
 ## Project Structure
 
 ```
-agentloop/
-  providers/
+agentloop/              ← repo root
+  agentloop/            ← Python package
+    providers/
+      __init__.py
+      base.py           # abstract LLM interface
+      groq_provider.py
+      ollama_provider.py
+      anthropic_provider.py
+      openai_provider.py
     __init__.py
-    base.py                # abstract LLM interface 
-    groq_provider.py
-    ollama_provider.py
-    anthropic_provider.py
-    openai_provider.py
-  modifier.py              # data model: proposed code change
-  feedback.py              # data model: environment results
-  memory.py                # iteration history
-  environment.py           # compile + profile
-  agent.py                 # LLM reasoning loop
-  loop.py                  # entry point
+    agent.py            # LLM reasoning loop
+    environment.py      # mock compile + profile
+    feedback.py         # data model: environment results
+    loop.py             # entry point
+    memory.py           # iteration history
+    modifier.py         # data model: proposed code change
   .env.example
+  .gitignore
+  CONTRIBUTING.md
+  LICENSE
   pyproject.toml
+  README.md
 ```
 
 ---
 
+## Building on AgentLoop
+ 
+AgentLoop is designed to be extended. To build your own optimizer:
+ 
+1. Install AgentLoop: `pip install agentloop`
+2. Implement a custom environment:
+ 
+```python
+from agentloop.feedback import Feedback
+from agentloop.modifier import Modifier
+ 
+class MyEnvironment:
+    def run(self, modifier: Modifier) -> Feedback:
+        # compile, profile, return feedback
+        ...
+```
+ 
+3. Wire it into the loop:
+ 
+```python
+from agentloop.agent import Agent
+from agentloop.memory import Memory
+ 
+agent = Agent(
+    environment=MyEnvironment(),
+    memory=Memory(),
+    task="...",
+    original_code="...",
+    goal_description="...",
+    llm_provider=GroqProvider(api_key="...")
+)
+agent.run(max_iterations=5)
+```
+ 
+See [KernelScope](https://github.com/jagkt/kernelscope) for a full real-world example.
+ 
+---
+ 
 ## Roadmap
-
-AgentLoop is the foundation. Here's where it's going:
-
-- [ ] **v0.2** — YAML task DSL (define tasks as config files)
-- [ ] **v0.3** — Structured reward signals (not just pass/fail)
-- [ ] **v0.4** — Parallel environment execution
-- [ ] **v1.0** — Plugin system for custom environments
-- [ ] **KernelScope** — Real `nvcc` + `ncu` integration for GPU kernel optimization
-
+ 
+- [ ] **v0.2** - YAML task DSL
+- [ ] **v0.3** - Structured reward signals
+- [ ] **v0.4** - Parallel environment execution
+- [ ] **v1.0** - Plugin system for custom environments
+ 
 ---
 
 ## Contributing
