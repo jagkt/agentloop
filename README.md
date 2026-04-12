@@ -5,7 +5,7 @@
 
 AgentLoop is a minimal, observable agentic framework for code optimization tasks. It gives an LLM a goal, a tool, and an environment, then lets it loop until the goal is met or it runs out of attempts.
 
-Built as the foundation for [KernelScope](#roadmap), an AI-powered GPU kernel optimizer.
+Built as the foundation for [KernelScope](https://github.com/jagkt/kernelscope), an AI-powered GPU kernel optimizer.
 
 ---
 
